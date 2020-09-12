@@ -1,16 +1,13 @@
 /* gcc -o set_clear_toggle set_clear_toggle.c*/
-#include "set_clear_toggle.h"
+#include "bits_manipulation.h"
 
-int set_bit(unsigned int *num, uint8_t bit_value)
-{
+int set_bit(unsigned int *num, uint8_t bit_value) {
     /* How to find the number of bits in Arch? */
-    if (bit_value > (8*sizeof(size_t) - 1))
-    {
+    if (bit_value > (8*sizeof(size_t) - 1)) {
         return -EINVAL;
     }
-    /* NULL Check on pointer */
-    if (num == NULL)
-    {
+    // NULL Check on pointer
+    if (num == NULL) {
         // Verify it once
         return -EINVAL;
     }
@@ -20,10 +17,8 @@ int set_bit(unsigned int *num, uint8_t bit_value)
     return 0;
 }
 
-int clear_bit(unsigned int *num, uint8_t bit_value)
-{
-    if (bit_value > (8*sizeof(size_t) - 1))
-    {
+int clear_bit(unsigned int *num, uint8_t bit_value) {
+    if (bit_value > (8*sizeof(size_t) - 1)) {
         return -EINVAL;
     }
     // To clear bit make use of the logical AND with NOT Operation
@@ -32,10 +27,8 @@ int clear_bit(unsigned int *num, uint8_t bit_value)
     return(0);
 }
 
-int toggle_bit(unsigned int* num, uint8_t bit_value)
-{
-    if (bit_value > (8*sizeof(size_t) - 1))
-    {
+int toggle_bit(unsigned int* num, uint8_t bit_value) {
+    if (bit_value > (8*sizeof(size_t) - 1)) {
         return -EINVAL;
     }
     // To Toggle bit make use of the logical EX-OR Operation
