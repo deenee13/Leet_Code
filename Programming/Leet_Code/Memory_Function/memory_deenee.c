@@ -154,7 +154,7 @@ void* new_calloc (unsigned int num_blocks, unsgined int block_size, unsigned int
    void *ptr = malloc(memory_size) 
       if(ptr == NULL)
       {
-          return NULL
+        return NULL
       }
        
        memset(value, ptr);

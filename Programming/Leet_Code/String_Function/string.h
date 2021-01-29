@@ -18,7 +18,7 @@
  * 
  * @return
  * It will return the pointer to the starting location of the substring inside the mainstrig.
- * if the substring is not found inside the mainstring it will return NULL pointer. It will 0 if 
- * any of the two string is empty
+ * if the substring is not found inside the mainstring it will return NULL pointer. It will return  
+ * 0 if any of the two string is empty
  */
 const char* strstr_deep(const char *mainstring, const char *substring);

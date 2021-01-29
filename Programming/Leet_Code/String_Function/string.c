@@ -26,11 +26,12 @@ const char* strstr_deep(const char *mainstring, const char *substring) {
     if (mainstring == NULL) {
         return NULL;
     }
+
     if (substring == NULL) {
         return mainstring;
     }
+
     if (*substring == 0) {
-        printf("Into if\n");
         return 0;
     }
 
@@ -43,14 +44,14 @@ const char* strstr_deep(const char *mainstring, const char *substring) {
             mainstring++;
             j++;
         }
-        printf("Value of  j is %d and %d\n", j, i);
+        printf("Value of j is %d and %d\n", j, i);
        if (!*pattern) {
            j = 0;
-           printf("starting of second string is %d\n", (i));
+           //// printf("starting of second string is %d\n", (i));
            return begin;
-       }
-       mainstring = begin + 1;
-       i++;
+        }
+        mainstring = begin + 1;
+        i++;
     }
     return NULL;
 }

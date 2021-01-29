@@ -4,7 +4,7 @@
 
 /**
  *
- * This Function will take the starting ad the ending address of the word and reverse it with
+ * This Function will take the starting and the ending address of the word and reverse it with
  * the help of the temporary variable
  * 
  * @param word_begin
@@ -19,7 +19,7 @@
 void reverse(char *word_begin, char *word_end) {
     //// printf("In reverse function\n");
 
-    // Temporary varibalemto save the copy of the character
+    // Temporary varibale to save the copy of the character
     // Thus to prevent the originl copy from overwrite
     char temp;
     while ( word_begin < word_end ) {
@@ -56,7 +56,7 @@ void reverse_words(char *s ) {
             // This condition will execute when there is
             // transition from 1 word to next
             // We are passing temp - 1 because we just want the word and not
-            // the null character or space with the
+            // the null character or space
             reverse(word_begin, temp-1);
             // To update the starting of the word which will
             // be temp + 1 at this point
@@ -70,8 +70,7 @@ void reverse_words(char *s ) {
 }
 
 
-int main(void)
-{
+int main(void) {
     char s[] = "I love to play with the string";
     reverse_words(s);
     printf("%s\n", s);

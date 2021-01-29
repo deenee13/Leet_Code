@@ -1,8 +1,7 @@
 #include "conversion.h"
 
 
-int decimal_binary( const long int num)
-{
+int decimal_binary(const long int num) {
     unsigned int num1 = num;
     int i = 0;
     int j = 0;
@@ -14,25 +13,22 @@ int decimal_binary( const long int num)
         return -EINVAL;
     }
     */
-    if (ptr == NULL)
-    {
+    if (ptr == NULL) {
         return -EINVAL;
     }
-    while ( num1 > 0 )
-    {
+    while ( num1 > 0 ) {
         *(ptr + i) = num1 % 2;
         num1 = num1 / 2;
         i++;
     }
     printf("Binary representation is:\n");
-    for ( j = i-1; j >= 0; j-- )
-    {
+    for ( j = i-1; j >= 0; j-- ) {
         printf(" %u ", *(ptr + j));
     }
     return 0;
 }
-int main(void)
-{
+
+int main(void)  {
     unsigned int num = 0;
     printf("Enter the num in decimal to convert it to the binary:");
     scanf("%u", &num);

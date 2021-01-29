@@ -32,8 +32,8 @@ int reverse_bits(unsigned int *num) {
 }
 
 /**
- * In this approach we only reverse the bits where there 1 present where in the above approach
- * we were shifting whether the bit is 0 or 1.
+ * In this approach we only reverse the bits where there is 1 present where in the above approach
+ * we were shifting irrespective of whether the bit is 0 or 1.
  * 
  **/ 
 

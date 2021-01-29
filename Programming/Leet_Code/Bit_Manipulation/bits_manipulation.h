@@ -104,7 +104,7 @@ int reverse_bits(unsigned int *num);
  * 
  * @param bit_value
  * It specifies the bit location from where the bits needs to be encoded
- * which means need to be reversed
+ * which means need to be reversed. It ranges from 0 to 31
  * 
  * @return
  * <0 on error. Standard linux errno is set on errors.
