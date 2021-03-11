@@ -21,7 +21,7 @@ int mem_copy_deep(void *dest, const void *source, size_t numbyte) {
     // Check for the overlapping condition
     if ( csource < cdest && cdest < (csource + numbyte) ) {
         printf("Source and the destination location are Overlapping\n");
-        return -EINVAL;
+        return -EOVERFLOW;
     }
     /* Implement for faster copy using arch */
     for (i = 0; i < numbyte; i++) {
@@ -50,7 +50,7 @@ int mem_move_deep(void *dest, const void *source, size_t numbyte) {
     // Condition to check if the Source and Destination are getting Overlapped
     // This case covers when the source buffer is getting
     // overlapped from tail
-    if ( csource < cdest && cdest < (csource + numbyte) ) {
+    if (csource < cdest && cdest < (csource + numbyte)) {
         while (numbyte != 0) {
             // Start copying from the last location of source
             // to the last location of the destination
@@ -77,13 +77,18 @@ int mem_cmp_deep(const void *s1, const void *s2, size_t numbyte) {
     int total = 0;
 
     // Typecasting the NULL pointer
-    const char *str1 = (const char *)(s1);
-    const char *str2 = (const char *)(s2);
+    const char *str1;
+    const char *str2;
 
     // If both the pointers are NULL return  error
-    if (!(str1 && str1)) {
+    if (!s1 || !s2) {
         return -EINVAL;
     }
+
+    // Typecasting the NULL pointer
+    str1 = (const char *)(s1);
+    str2 = (const char *)(s2);
+
 
     // If there is no data to compare then return 0
     if (numbyte == 0) {
@@ -106,6 +111,7 @@ int mem_cmp_deep(const void *s1, const void *s2, size_t numbyte) {
 
 
 int main(void) {
+
     int flag = 0;
     char example1[50] = "a";
     char example2[50] = "bb";

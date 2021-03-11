@@ -5,6 +5,7 @@
 #include <errno.h>
 
 #include "dma_operation.h"
+#include "memory_deenee.h"
 
 uint32_t read_reg(const uint32_t BASE_ADDR, const uint32_t REG_OFFSET) {
     uint32_t value = 0;
@@ -85,11 +86,14 @@ int dma_trx(const uint32_t dest, const uint32_t src, const uint32_t num_bytes) {
 
 int main(void) {
     int rc;
-
+    var = 2;
+    printf("Value of var is %d\n", var);
+    /*
     rc = dma_trx(0x1200, 0x800, 0x100);
     if (rc) {
         printf("ERROR: %d %s", rc, strerror(-rc));
     }
+    */
 
     return rc;
 }

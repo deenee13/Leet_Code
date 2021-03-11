@@ -26,7 +26,7 @@ char non_repeated_character(char *str) {
             }
         }
         // If it is not getting repeated then return that character
-        // found th first non repeated character
+        // found the first non repeated character
         if (repeated == 0) {
             return *(str+i);
         }

@@ -37,8 +37,46 @@ int toggle_bit(unsigned int* num, const uint8_t bit_value) {
     return(0);
 }
 
+#define MASK_MSB 0x80000000U
+
+/* 
+ *  This is the one way of rotating the bits.
+ *  But this is expensive way of doing it.
+ */
+int rotate_bits_unoptimised(unsigned int* num, uint8_t value) {
+
+    /* This should be wide enough to capture MSB. */
+    uint64_t temp = 0;
+    if (value > (8*sizeof(int) - 1)) {
+        return -EINVAL;
+    }
+
+    while (value != 0) {
+
+        temp = *num & MASK_MSB;
+        temp = temp >> (8*sizeof(int) - 1);
+
+        *num = *num << 1;
+        *num |= temp;
+        value--;
+    }
+    return 0;
+}
+
+
+int rotate_bits(unsigned int* num, uint8_t value) {
+
+    if (value > (8*sizeof(int) - 1)) {
+        printf("%d\n", value);
+        return -EINVAL;
+    }
+
+    *num =  ((*num >> (sizeof(int)*8 - value)) | (*num << value));
+    return 0;
+}
+
 int main(void) {
-    printf("No. of bits in the architectire are %lu\n", 8*sizeof(size_t)-1);
+    printf("No. of bits in the architecture are %lu\n", 8*sizeof(size_t)-1);
     int flag = 0;
     unsigned int num = 0;
     num = 0x0C;
@@ -54,6 +92,11 @@ int main(void) {
     printf("\n");
     printf("––––––––––––––TOGGLE_BIT Function––––––––––––––\n");
     flag = toggle_bit(ptr, 2);
+    printf("value is %02X and flag is %d\n", *ptr, flag);
+    printf("\n");
+    printf("––––––––––––––ROTATE_BITS Function––––––––––––––\n");
+    *ptr = 0X123456;
+    flag = rotate_bits(ptr, 8);
     printf("value is %02X and flag is %d\n", *ptr, flag);
     printf("\n");
 }

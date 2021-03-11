@@ -16,7 +16,7 @@ int decimal_binary(const long int num) {
     if (ptr == NULL) {
         return -EINVAL;
     }
-    while ( num1 > 0 ) {
+    while (num1 > 0) {
         *(ptr + i) = num1 % 2;
         num1 = num1 / 2;
         i++;

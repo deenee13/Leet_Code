@@ -1,4 +1,4 @@
-/* gcc -o set_clear_toggle set_clear_toggle.c*/
+/* gcc -o set_clear_toggle set_clear_toggle.c */
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>

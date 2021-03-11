@@ -4,7 +4,6 @@
 #include <string.h>
 #include <errno.h>
 
-
 /**
  * We are implementing as macro and not as function because sizeof need to 
  * take variable of any type and thus we cannot do that in c hence it is defined
