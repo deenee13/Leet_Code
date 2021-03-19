@@ -57,7 +57,6 @@ char* add_two_strings(char* str1, char* str2) {
     
     /*
     for (int i = 0; i < difference; i++) {
-
         if (len1 > len2) {
             result[length - i] = str1[length - 1 - i];
         } else {
